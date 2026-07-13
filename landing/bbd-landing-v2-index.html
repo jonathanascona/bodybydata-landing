@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BodyByData Links</title>
+<meta name="description" content="Jump-off page for BodyByData: the live demo (coming soon), GitHub, the original Triad package showcase, and portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --surface-2: #F7F7F7;
+    --text: #000000;
+    --text-dim: #6E6E6E;
+    --border: #E2E2E2;
+    --accent: #FF0000;
+    --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Consolas, monospace;
+    --font-ui: -apple-system, 'SF Pro Display', system-ui, sans-serif;
+  }
+  [data-theme="dark"] {
+    --bg: #0A0A0A;
+    --surface-2: #161616;
+    --text: #FFFFFF;
+    --text-dim: #9A9A9A;
+    --border: #2A2A2A;
+    --accent: #FF3B30;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-serif);
+    transition: background .3s ease, color .3s ease;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  .shell { max-width: 560px; margin: 0 auto; padding: 64px 24px 70px; }
+
+  .masthead { text-align: center; padding-bottom: 34px; border-bottom: 1px solid var(--border); margin-bottom: 34px; }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0 7px;
+  }
+  .byline {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--text-dim);
+    font-weight: 500;
+    margin: 0 0 3px;
+  }
+  .byline-name {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text);
+    opacity: .55;
+    margin: 0 0 22px;
+  }
+  .wordmark {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-style: normal;
+    font-size: 34px;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+  }
+  .wordmark .mark { color: var(--accent); }
+  .dek {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--text-dim);
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .links { display: flex; flex-direction: column; }
+
+  .link-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+  }
+  .links .link-row:last-child { border-bottom: none; }
+
+  .link-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .05em;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .link-body { flex: 1; min-width: 0; }
+  .link-title {
+    font-family: var(--font-ui);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 4px;
+    transition: color .15s ease;
+  }
+  .link-desc {
+    font-family: var(--font-serif);
+    font-size: 14px;
+    color: var(--text-dim);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .link-arrow {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    color: var(--text-dim);
+    flex-shrink: 0;
+    padding-top: 2px;
+    transition: color .15s ease, transform .15s ease;
+  }
+
+  a.link-row:hover .link-title { color: var(--accent); }
+  a.link-row:hover .link-arrow { color: var(--accent); transform: translateX(2px); }
+
+  .link-row.is-disabled { cursor: default; }
+  .link-row.is-disabled .link-num { opacity: .5; }
+  .link-row.is-disabled .link-title { color: var(--text-dim); }
+  .link-row.is-disabled .link-desc { opacity: .75; }
+
+  .badge-soon {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 2px 6px;
+    margin-left: 8px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+  footer .footer-note { display: inline-block; margin-top: 4px; font-size: 10px; opacity: .7; }
+  .theme-toggle {
+    position: relative;
+    margin-top: 16px;
+    width: 42px; height: 24px;
+    border-radius: 999px;
+    background: var(--border);
+    border: none;
+    cursor: pointer;
+  }
+  .theme-toggle .knob {
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--bg);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    transition: transform .25s ease;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text);
+  }
+  .theme-toggle .knob svg { width: 11px; height: 11px; display: block; }
+  [data-theme="dark"] .theme-toggle .knob { transform: translateX(18px); }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <div class="masthead">
+    <p class="eyebrow">Data Science Senior Project</p>
+    <p class="byline">Brigham Young University&nbsp;-&nbsp;Idaho</p>
+    <p class="byline-name">Jonathan Ascona</p>
+    <div class="wordmark">Body<span>By</span><span class="mark">Data</span></div>
+    <p class="dek">Pick where you want to go</p>
+  </div>
+
+  <div class="links">
+
+    <div class="link-row is-disabled" aria-disabled="true">
+      <span class="link-num">01</span>
+      <span class="link-body">
+        <span class="link-title">Try the Demo<span class="badge-soon">Coming Soon</span></span>
+        <p class="link-desc">The live BodyByData dashboard, once the first build is ready</p>
+      </span>
+    </div>
+
+    <a class="link-row" href="https://github.com/jonathanascona" target="_blank" rel="noopener">
+      <span class="link-num">02</span>
+      <span class="link-body">
+        <span class="link-title">Blogs &amp; Work</span>
+        <p class="link-desc">GitHub repo of writing, projects, and other work</p>
+      </span>
+      <span class="link-arrow">&#8594;</span>
+    </a>
+
+    <a class="link-row" href="https://jonathanascona.github.io/triad-showcase/" target="_blank" rel="noopener">
+      <span class="link-num">03</span>
+      <span class="link-body">
+        <span class="link-title">Triad (Original Package)</span>
+        <p class="link-desc">Public showcase: the original package concept that evolved into BodyByData</p>
+      </span>
+      <span class="link-arrow">&#8594;</span>
+    </a>
+
+    <a class="link-row" href="https://jonathanascona.github.io/" target="_blank" rel="noopener">
+      <span class="link-num">04</span>
+      <span class="link-body">
+        <span class="link-title">Portfolio<span class="badge-soon">Coming Soon</span></span>
+        <p class="link-desc">My personal website, still under construction</p>
+      </span>
+      <span class="link-arrow">&#8594;</span>
+    </a>
+
+  </div>
+
+  <footer>
+    Jonathan Ascona &middot; dba BodyByData &middot; &copy; 2026. All rights reserved.
+    <br>
+    <span class="footer-note">Triad is open source. The BodyByData codebase is proprietary; no license is granted.</span>
+    <br>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <span class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="4.2" y1="4.2" x2="6" y2="6"/><line x1="18" y1="18" x2="19.8" y2="19.8"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="4.2" y1="19.8" x2="6" y2="18"/><line x1="18" y1="6" x2="19.8" y2="4.2"/></svg></span>
+    </button>
+  </footer>
+</div>
+
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  toggle.addEventListener('click', () => {
+    root.setAttribute('data-theme', root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+</script>
+
+</body>
+</html>
