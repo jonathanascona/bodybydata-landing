@@ -6,7 +6,7 @@
 <title>BodyByData Links</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon-180.png">
-<meta name="description" content="Jump-off page for BodyByData: the live demo (coming soon), GitHub, the original Triad package showcase, and portfolio.">
+<meta name="description" content="Jump-off page for BodyByData: launch the live AI-powered fitness dashboard, the original Triad package showcase, and portfolio.">
 <style>
   :root {
     --bg: #FFFFFF;
@@ -158,32 +158,6 @@
   .link-arrow svg { width: 18px; height: 18px; }
   .link-card:hover .link-arrow { color: var(--accent); transform: translateX(3px); }
 
-  .badge-soon {
-    display: inline-block;
-    font-size: 9.5px;
-    font-weight: 700;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 2px 8px;
-    margin-left: 8px;
-    vertical-align: middle;
-    position: relative;
-    top: -1px;
-  }
-  .link-card.is-disabled {
-    cursor: default;
-    opacity: .72;
-  }
-  .link-card.is-disabled:hover {
-    transform: none;
-    border-color: var(--border);
-  }
-  .link-card.is-disabled .link-arrow { visibility: hidden; }
-
   footer {
     text-align: center;
     margin-top: 32px;
@@ -213,17 +187,16 @@
 
   <div class="links">
 
-    <!-- No live demo yet: card is intentionally inert until a real build exists -->
-    <div class="link-card is-disabled" aria-disabled="true">
+    <a class="link-card" href="https://bodybydata.com" target="_blank" rel="noopener">
       <div class="link-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14"/><path d="M2 19h20"/><path d="M9 9l3 3-3 3"/></svg>
       </div>
       <div class="link-body">
-        <p class="link-title">Try the Demo<span class="badge-soon">Coming Soon</span></p>
-        <p class="link-desc">The live BodyByData dashboard, once the first build is ready</p>
+        <p class="link-title">Launch BodyByData</p>
+        <p class="link-desc">Open the live AI-powered fitness dashboard.</p>
       </div>
       <div class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
-    </div>
+    </a>
 
     <a class="link-card" href="https://jonathanascona.github.io/bodybydata-showcase/" target="_blank" rel="noopener">
       <div class="link-icon">
